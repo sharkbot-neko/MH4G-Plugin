@@ -67,6 +67,7 @@ exit:
     {
         StopOverlayMenu();
         StopGameGuiDemo();
+        StopGameKeyboard();
         ToggleTouchscreenForceOn();
     }
 
@@ -82,6 +83,9 @@ exit:
 
         menu += new MenuEntry("Game GUI Demo", UpdateGameGuiDemo,
                               "Display a game GUI overlay using the analyzed cDraw entry points.");
+
+        menu += new MenuEntry("Open Game Keyboard", UpdateGameKeyboard,
+                              "Open the game's native software keyboard.");
     }
 
     int     main(void)
