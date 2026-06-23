@@ -65,6 +65,7 @@ exit:
     // Useful to save settings, undo patchs or clean up things
     void    OnProcessExit(void)
     {
+        StopOverlayMenu();
         StopGameGuiDemo();
         ToggleTouchscreenForceOn();
     }
@@ -93,6 +94,8 @@ exit:
 
         // Init our menu entries & folders
         InitMenu(*menu);
+
+        StartOverlayMenu();
 
         // Launch menu and mainloop
         menu->Run();

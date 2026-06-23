@@ -6,6 +6,7 @@
 #include "MH4G/GameGUI.hpp"
 #include "MH4G/GUI.hpp"
 #include "MH4G/Logger.hpp"
+#include "MH4G/OverlayMenu.hpp"
 #include "MH4G/Player.hpp"
 #include "Unicode.h"
 
