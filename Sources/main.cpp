@@ -65,6 +65,7 @@ exit:
     // Useful to save settings, undo patchs or clean up things
     void    OnProcessExit(void)
     {
+        StopGameGuiDemo();
         ToggleTouchscreenForceOn();
     }
 
@@ -77,6 +78,9 @@ exit:
         {
             getPlayerInfo();
         });
+
+        menu += new MenuEntry("Game GUI Demo", UpdateGameGuiDemo,
+                              "Display a game GUI overlay using the analyzed cDraw entry points.");
     }
 
     int     main(void)
