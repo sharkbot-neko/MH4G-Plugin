@@ -70,6 +70,9 @@ exit:
 
     void    InitMenu(PluginMenu &menu)
     {
+        menu += new MenuEntry("Auto Chat Dump", UpdateChatAutoDump,
+                              "Append captured chat messages to /MH4G-Plugin/chat.log");
+
         menu += new MenuEntry("Player Information", nullptr, [](MenuEntry *entry)
         {
             getPlayerInfo();

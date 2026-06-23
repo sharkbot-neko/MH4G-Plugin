@@ -35,7 +35,7 @@ namespace MH4G
         s32 vectorX;                        // 0x0020
         s32 vectorY;                        // 0x0024
         s32 vectorZ;                        // 0x0028
-        u8 _unknown002C[0x04];
+        u32 playerDataAddress;              // 0x002C; name is UTF-16 at +0x18
         u8 unitKind;                        // 0x0030
         u8 playerType;                      // 0x0031 (pl_type)
         u8 _unknown0032[0x02];
