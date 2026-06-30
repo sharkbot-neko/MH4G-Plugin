@@ -122,18 +122,54 @@ namespace MH4G
         {
             volatile u32 vtable;
             u8 opaque[Sizes::SwkbdGUIWidget - sizeof(u32)];
+
+            void Initialize()
+            {
+                vtable = Addresses::SwkbdGUIWidgetVTable;
+                for (size_t i = 0; i < sizeof(opaque); ++i)
+                    opaque[i] = 0;
+            }
+
+            bool HasGameVTable() const volatile
+            {
+                return vtable == Addresses::SwkbdGUIWidgetVTable;
+            }
         };
 
         struct SwkbdGUIManager
         {
             volatile u32 vtable;
             u8 opaque[Sizes::SwkbdGUIManager - sizeof(u32)];
+
+            void Initialize()
+            {
+                vtable = Addresses::SwkbdGUIManagerVTable;
+                for (size_t i = 0; i < sizeof(opaque); ++i)
+                    opaque[i] = 0;
+            }
+
+            bool HasGameVTable() const volatile
+            {
+                return vtable == Addresses::SwkbdGUIManagerVTable;
+            }
         };
 
         struct SwkbdGUIButton
         {
             volatile u32 vtable;
             u8 opaque[Sizes::SwkbdGUIButton - sizeof(u32)];
+
+            void Initialize()
+            {
+                vtable = Addresses::SwkbdGUIButtonVTable;
+                for (size_t i = 0; i < sizeof(opaque); ++i)
+                    opaque[i] = 0;
+            }
+
+            bool HasGameVTable() const volatile
+            {
+                return vtable == Addresses::SwkbdGUIButtonVTable;
+            }
         };
 
         struct GameIconInfo

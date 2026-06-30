@@ -65,7 +65,6 @@ exit:
     // Useful to save settings, undo patchs or clean up things
     void    OnProcessExit(void)
     {
-        StopOverlayMenu();
         StopGameGuiDemo();
         StopGameKeyboard();
         ToggleTouchscreenForceOn();
@@ -73,16 +72,10 @@ exit:
 
     void    InitMenu(PluginMenu &menu)
     {
-        menu += new MenuEntry("Auto Chat Dump", UpdateChatAutoDump,
-                              "Append captured chat messages to /MH4G-Plugin/chat.log");
-
         menu += new MenuEntry("Player Information", nullptr, [](MenuEntry *entry)
         {
             getPlayerInfo();
         });
-
-        menu += new MenuEntry("Game GUI Demo", UpdateGameGuiDemo,
-                              "Display a game GUI overlay using the analyzed cDraw entry points.");
 
         menu += new MenuEntry("Open Game Keyboard", UpdateGameKeyboard,
                               "Open the game's native software keyboard.");
@@ -99,7 +92,7 @@ exit:
         // Init our menu entries & folders
         InitMenu(*menu);
 
-        StartOverlayMenu();
+        menu->Callback(GameCommand);
 
         // Launch menu and mainloop
         menu->Run();
